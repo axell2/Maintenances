@@ -4,8 +4,9 @@ Api para registro de carros y mantenimientos.
 Instalacion 
 1. Instalar docker 
   linux : sudo snap install docker
-una vez instalado docker dirijase a la carpeta raiz del proyecto 
-2. Ejecute el comando docker compose up --build o sudo docker compose --build
+2. clonar el proyecto
+  una vez instalado docker dirijase a la carpeta raiz del proyecto 
+3. Ejecute el comando docker compose up --build o sudo docker compose --build
 en este paso podria pedir el archivo .env
 por lo que sera necesario crearlo en la carpeta backend
 con las siuientes variables de entorno
