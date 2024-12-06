@@ -45,13 +45,13 @@ group :development do
   # gem "spring"
 end
 
-
+#state machines
 gem "aasm", "~> 5.5"
-
+#annotate fields in models
 gem "annotate", "~> 3.2"
-
-gem "haml-rails", "~> 2.1"
-
-
+#jwt authetication
 gem 'jwt'
 gem 'bcrypt', '~> 3.1.7'  
+#pagination
+gem 'will_paginate'
+

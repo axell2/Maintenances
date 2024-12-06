@@ -4,7 +4,7 @@ class Api::V1::MaintenanceServicesController < ApplicationController
 
   # GET /maintenance_services
   def index
-    @maintenance_services = MaintenanceService.all
+    @maintenance_services = MaintenanceService.paginate(page: params[:page].to_i, per_page: 10)
     render :index
   end
 
