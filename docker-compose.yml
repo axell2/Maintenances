@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Servicio para la API de Rails
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/myapp
+    environment:
+      RAILS_ENV: development
+    env_file: ./backend/.env
+    depends_on:
+      - database
+    networks:
+      - app_network
+
+  # Servicio para la aplicación React
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "4000:4000"  # Exponemos el puerto 3000 de React al 3001 en el host
+    volumes:
+      - ./frontend:/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+      - app_network
+
+  # Base de datos (PostgreSQL)
+  database:
+    container_name: postgres
+    image: postgres:13
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  pg_data:
