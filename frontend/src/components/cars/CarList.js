@@ -27,7 +27,7 @@ const CarsList = () => {
     };
 
     fetchCars();
-  }, [currentPage]); // Ejecutar cada vez que `currentPage` cambie
+  }, [currentPage]); 
 
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {

@@ -22,7 +22,7 @@ const NewCar = () => {
       await axios.post('http://localhost:3000/api/v1/cars', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      navigate('/cars'); // Redirigir a la lista de autos
+      navigate('/cars'); 
     } catch (err) {
       setError('Error creating car. Please try again.');
     }

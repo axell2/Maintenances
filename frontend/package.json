@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+
   "dependencies": {
     "axios": "^1.7.9",
     "cra-template": "1.2.0",
@@ -15,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm i && npm run start"
   },
   "eslintConfig": {
     "extends": [

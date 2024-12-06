@@ -37,15 +37,12 @@ const App = () => {
         <Routes>
           {/* Rutas para el login y signup */}
           <Route path="/login" element={<Login setToken={setToken} />} />
-          <Route path="/signup" element={<Signup setToken={setToken} />} />
+          <Route path="/signup" element= {token ? "Registered" : <Signup setToken={setToken} />}  />
           <Route path="/cars" element={token ? <CarsList /> : <Navigate to="/login" replace />} />
           <Route path="/cars/:id" element={token ? <CarDetails /> : <Navigate to="/login" replace />} />
           <Route path="/cars/:id/maintenance_services/new" element={token ? <NewMaintenanceService /> : <Navigate to="/login" replace />}/>
           <Route path="/cars/new" element={token ? <NewCar /> : <Navigate to="/login" replace />} />
           <Route path="/maintenance_services" element={token ? <MaintenanceServiceList /> : <Navigate to="/login" replace />} />
-
-        
-
         </Routes>
       </div>
     </Router>

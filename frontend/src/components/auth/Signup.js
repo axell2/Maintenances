@@ -9,8 +9,6 @@ const Signup = ({ setToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Verificar que las contraseñas coincidan
     if (password !== passwordConfirmation) {
       setError("Passwords don't match");
       return;
@@ -21,10 +19,7 @@ const Signup = ({ setToken }) => {
         user: { email, password, password_confirmation: passwordConfirmation },
       });
 
-      // Guardar el token en el localStorage
       localStorage.setItem('token', response.data.token);
-
-      // Pasar el token al componente principal
       setToken(response.data.token);
 
       setError('');
@@ -37,7 +32,6 @@ const Signup = ({ setToken }) => {
     <div className="signup-form">
       <h2>Signup</h2>
 
-      {/* Mostrar mensaje de error */}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       <form onSubmit={handleSubmit}>
