@@ -4,7 +4,7 @@ class Api::V1::CarsController < ApplicationController
 
   # GET /cars
   def index
-    @cars = Car.paginate(page: params[:page].to_i, per_page: 10)
+    @cars = Car.paginate(page: params[:page], per_page: 20) || []
     @cars.inspect
     render :index
   end

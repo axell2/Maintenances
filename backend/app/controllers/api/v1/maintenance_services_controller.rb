@@ -4,8 +4,30 @@ class Api::V1::MaintenanceServicesController < ApplicationController
 
   # GET /maintenance_services
   def index
-    @maintenance_services = MaintenanceService.paginate(page: params[:page].to_i, per_page: 10)
-    render :index
+
+    status = params[:status]
+    plate_number = params[:plate_number]
+
+    maintenance_services = MaintenanceService.all
+
+    if status.present?
+      @maintenance_services = maintenance_services.where(status: status)
+    end
+
+    if plate_number.present?
+      @maintenance_services = maintenance_services.joins(:car).where(cars: { plate_number: plate_number })
+    end
+    
+    @maintenance_services =  MaintenanceService.paginate(page: params[:page].to_i, per_page: 10)
+
+    if status.present? or plate_number.present?
+      render json: {
+        services: @maintenance_services,
+        total_pages: @maintenance_services.total_pages
+      }
+    else
+      render :index
+    end
   end
 
   # GET /maintenance_services/1
