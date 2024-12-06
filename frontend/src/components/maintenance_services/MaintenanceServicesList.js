@@ -9,9 +9,8 @@ const MaintenanceServiceList = () => {
   const [plateNumber, setPlateNumber] = useState('');
   const [error, setError] = useState('');
 
-  const resultsPerPage = 5; // Número de servicios por página
+  const resultsPerPage = 5; 
 
-  // Realizar la solicitud de servicios de mantenimiento con parámetros de búsqueda y paginación
   useEffect(() => {
     const fetchMaintenanceServices = async () => {
       try {
@@ -20,8 +19,8 @@ const MaintenanceServiceList = () => {
           params: {
             page: currentPage,
             per_page: resultsPerPage,
-            status: status, // Filtro por status
-            plate_number: plateNumber, // Filtro por plate_number
+            status: status, 
+            plate_number: plateNumber, 
           },
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -42,14 +41,13 @@ const MaintenanceServiceList = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setCurrentPage(1); // Restablecer la página a la 1 cuando se realice una nueva búsqueda
+    setCurrentPage(1); 
   };
 
   return (
     <div>
       <h2>Maintenance Services</h2>
 
-      {/* Formulario de búsqueda */}
       <form onSubmit={handleSearch}>
         <div>
           <label>Status:</label>
@@ -90,7 +88,6 @@ const MaintenanceServiceList = () => {
         )}
       </ul>
 
-      {/* Paginación */}
       <div>
         <button
           onClick={() => handlePageChange(currentPage - 1)}
