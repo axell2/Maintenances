@@ -29,10 +29,10 @@ services:
 
   database:
     container_name: postgres
-    image: postgres:13
+    image: postgres:12.1
     volumes:
-      - pg_data:/var/lib/postgresql/data
-      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - app_network
 networks:
@@ -40,4 +40,4 @@ networks:
     driver: bridge
 
 volumes:
-  pg_data:
+  db_data:
