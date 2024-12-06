@@ -1,6 +1,6 @@
 class Api::V1::CarsController < ApplicationController
   before_action :set_car, only: %i[ show update destroy ]
-  include ActionController::MimeResponds
+  before_action :authorize_request
 
   # GET /cars
   def index
