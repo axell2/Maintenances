@@ -51,3 +51,7 @@ gem "aasm", "~> 5.5"
 gem "annotate", "~> 3.2"
 
 gem "haml-rails", "~> 2.1"
+
+
+gem 'jwt'
+gem 'bcrypt', '~> 3.1.7'  

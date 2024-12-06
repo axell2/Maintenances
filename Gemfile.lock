@@ -84,6 +84,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     benchmark (0.4.0)
     bigdecimal (3.1.8)
     bootsnap (1.18.4)
@@ -118,6 +119,8 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jwt (2.9.3)
+      base64
     logger (1.6.2)
     loofah (2.23.1)
       crass (~> 1.0.2)
@@ -226,10 +229,12 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 5.5)
   annotate (~> 3.2)
+  bcrypt (~> 3.1.7)
   bootsnap
   debug
   haml-rails (~> 2.1)
   jbuilder
+  jwt
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.4, >= 7.1.4.1)
